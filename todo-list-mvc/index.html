@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do List - MVC</title>
+
+  <!-- Link to the main CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Main application container -->
+  <div id="app">
+    
+    <!-- Theme toggle button with tooltip -->
+    <button id="toggleTheme" data-tooltip="Cycle through themes">🎨 Change Theme</button>
+
+    <!-- App title -->
+    <h1>To-Do List</h1>
+
+    <!-- Input field for entering new tasks -->
+    <input type="text" id="taskInput" data-tooltip="Type your task here" />
+
+    <!-- Button to add a new task -->
+    <button id="addBtn" data-tooltip="Click to add task">Add Task</button>
+
+    <!-- List container to display all tasks -->
+    <ul id="taskList" data-tooltip="Click a task to mark as complete. Click ❌ to delete."></ul>
+  </div>
+
+  <!-- Task management buttons shown after the task list -->
+  <div id="bottomActions">
+    <!-- Button to delete only completed tasks -->
+    <button id="deleteCompletedBtn">🧹 Delete Completed Tasks</button>
+
+    <!-- Button to delete all tasks regardless of status -->
+    <button id="deleteAllBtn">🗑️ Delete All Tasks</button>
+  </div>
+
+  <!-- Main JavaScript controller module -->
+  <script type="module" src="controller/todoController.js"></script>
+</body>
+
+</html>

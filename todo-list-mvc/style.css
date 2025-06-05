@@ -1,0 +1,311 @@
+/* ===========================
+   Theme Color Variables
+   =========================== */
+:root {
+  --bg: #ffffff;
+  --text: #333;
+  --card: #ffffff;
+  --accent: #764ba2;
+  --accent-dark: #5a378c;
+  --completed: #999;
+}
+
+/* Default theme variables (same as :root) */
+body.theme-default {
+  --bg: #ffffff;
+  --text: #333;
+  --card: #ffffff;
+  --accent: #764ba2;
+  --accent-dark: #5a378c;
+  --completed: #999;
+}
+
+/* Dark theme colors */
+body.theme-dark {
+  --bg: #1f1f1f;
+  --text: #e0e0e0;
+  --card: #2b2b2b;
+  --accent: #ff6ec4;
+  --accent-dark: #c93b99;
+  --completed: #666;
+}
+
+/* Sunset theme colors */
+body.theme-sunset {
+  --bg: #fff4e6;
+  --text: #4a1c40;
+  --card: #ffe0b2;
+  --accent: #ff7e5f;
+  --accent-dark: #feb47b;
+  --completed: #995c5c;
+}
+
+/* Cyberpunk theme colors */
+body.theme-cyberpunk {
+  --bg: #0f0f1c;
+  --text: #f0f0f0;
+  --card: #1e1e2e;
+  --accent: #00ffe7;
+  --accent-dark: #ff00ff;
+  --completed: #8888aa;
+}
+
+/* ===========================
+   Base Styles
+   =========================== */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun, casual font */
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background-color: var(--bg); /* fallback bg color */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* center #app horizontally */
+  align-items: flex-start; /* align #app at top */
+  height: 100vh; /* full viewport height */
+  color: var(--text);
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out; /* smooth theme change */
+  outline-offset: 4px; /* outline spacing for focus states */
+}
+
+/* ===========================
+   Main To-Do Container
+   =========================== */
+#app {
+  background: var(--card);
+  margin-top: 60px;
+  padding: 30px 25px;
+  border-radius: 20px;
+  width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: slideIn 1s ease-out; /* entrance animation */
+}
+
+/* Slide-in animation for app container */
+@keyframes slideIn {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===========================
+   Heading Styles
+   =========================== */
+h1 {
+  text-align: center;
+  color: var(--accent-dark);
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   Input Field Styles
+   =========================== */
+input {
+  width: calc(100% - 22px); /* full width minus padding */
+  padding: 12px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus style for input */
+input:focus {
+  border-color: var(--accent-dark);
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Button Styles
+   =========================== */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--accent);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: var(--accent-dark);
+}
+
+/* Focus outline for accessibility */
+button:focus {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Theme Toggle Button
+   =========================== */
+#toggleTheme {
+  margin-top: 10px;
+  background-color: #444;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+  float: right; /* align right */
+}
+
+/* Focus style for theme toggle */
+#toggleTheme:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Task List Styles
+   =========================== */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Individual task item */
+li {
+  background: var(--card);
+  color: var(--text);
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between; /* space between task text & delete btn */
+  align-items: center;
+  font-size: 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+/* Dark theme: slightly different background for list items */
+body.theme-dark li {
+  background: #3b3b3b;
+}
+
+/* Hover effect for list items */
+li:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Completed tasks style */
+.completed {
+  text-decoration: line-through;
+  color: var(--completed);
+}
+
+/* Additional completed task styles */
+li.completed {
+  text-decoration: line-through;
+  color: var(--completed);
+  cursor: default; /* no pointer on completed */
+}
+
+/* Focus outline for tasks */
+li:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   Delete Button inside task item
+   =========================== */
+.delete {
+  color: #e74c3c; /* red delete color */
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none; /* prevent text selection */
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Delete button hover effect */
+.delete:hover {
+  color: #c0392b;
+}
+
+/* ===========================
+   Tooltip Styles
+   =========================== */
+[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Tooltip bubble styling */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; /* place above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0; /* hidden by default */
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 10;
+}
+
+/* Show tooltip on hover/focus */
+[data-tooltip]:hover::after,
+[data-tooltip]:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* ===========================
+   Responsive Styles for Small Screens
+   =========================== */
+@media (max-width: 480px) {
+  #app {
+    width: 90%;
+    margin-top: 30px;
+    padding: 20px;
+  }
+}
+
+/* ===========================
+   Bottom Action Buttons Container
+   =========================== */
+#bottomActions {
+  position: fixed; /* pinned at bottom center */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 100;
+}
+
+/* Buttons inside bottomActions */
+#bottomActions button {
+  background-color: var(--accent-dark);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for bottom action buttons */
+#bottomActions button:hover {
+  background-color: var(--accent);
+}
