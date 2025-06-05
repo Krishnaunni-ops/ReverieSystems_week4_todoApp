@@ -20,7 +20,7 @@ A simple and stylish To-Do List web app that helps you manage daily tasks with e
 ## Getting Started
 
 1. Clone or download this repository.
-2. Open the project using visual studio code
+2. Open the project folder todo-list-mvc using visual studio code
 3. Add the server extension to the application
 4. Right click on `index.html` and run with Liver server.
 5. Start adding, completing, and deleting tasks.
